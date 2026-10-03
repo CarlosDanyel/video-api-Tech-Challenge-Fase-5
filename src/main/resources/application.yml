@@ -1,0 +1,53 @@
+spring:
+  application:
+    name: video-api
+  servlet:
+    multipart:
+      max-file-size: 250MB
+      max-request-size: 250MB
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:fiapx}
+    username: ${DB_USER:fiapx}
+    password: ${DB_PASSWORD:change-me}
+  flyway:
+    enabled: true
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+  rabbitmq:
+    host: ${RABBIT_HOST:localhost}
+    port: ${RABBIT_PORT:5672}
+    username: ${RABBIT_USER:fiapx}
+    password: ${RABBIT_PASSWORD:change-me}
+    publisher-confirm-type: correlated
+    listener:
+      simple:
+        prefetch: 1
+        default-requeue-rejected: false
+        retry:
+          enabled: true
+          max-attempts: 3
+          initial-interval: 2000ms
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+server:
+  port: 8080
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus
+  endpoint:
+    health:
+      probes:
+        enabled: true
+storage:
+  endpoint: ${S3_ENDPOINT:http://localhost:9000}
+  access-key: ${S3_ACCESS_KEY:fiapx}
+  secret-key: ${S3_SECRET_KEY:change-me}
+  bucket: ${S3_BUCKET:videos}
+security:
+  jwt-secret: ${JWT_SECRET}
