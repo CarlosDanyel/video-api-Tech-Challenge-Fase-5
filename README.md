@@ -18,6 +18,8 @@ OpenAPI: `/v3/api-docs`; Swagger UI: `/swagger-ui/index.html`. Import [`postman/
 
 Upload accepts MP4, AVI, MOV and MKV up to 250 MB. The processor validates media with FFmpeg. JWT expires after 24 hours. Password hashes use BCrypt. `created_at` and `updated_at` are stored for users, videos and outbox events.
 
+Java sources and tests live under `src/main/java/techchallenge/fiapx/api` and `src/test/java/techchallenge/fiapx/api`. The package root is `techchallenge.fiapx.api`.
+
 ## Run and test
 
 Copy `.env.example` to `.env`, configure a random `JWT_SECRET` of at least 32 bytes, and start dependencies from the infra repository. Export the variables with `set -a; source .env; set +a`, set `DB_NAME=fiapx`, `DB_PORT=55433` and `SERVER_PORT=18080`, then run `JAVA_HOME=$(/usr/libexec/java_home -v 21) ./gradlew bootRun`. Run tests with `./gradlew clean test`. Flyway creates the schema from [`V1__initial.sql`](src/main/resources/db/migration/V1__initial.sql).
