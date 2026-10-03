@@ -18,7 +18,7 @@ OpenAPI: `/v3/api-docs`; Swagger UI: `/swagger-ui/index.html`. Import [`postman/
 
 Upload accepts MP4, AVI, MOV and MKV up to 250 MB. The processor validates media with FFmpeg. JWT expires after 24 hours. Password hashes use BCrypt. `created_at` and `updated_at` are stored for users, videos and outbox events.
 
-Java sources and tests live under `src/main/java/techchallenge/fiapx/api` and `src/test/java/techchallenge/fiapx/api`. The package root is `techchallenge.fiapx.api`.
+Java sources and tests live under `src/main/java/Tech_Challenge_Fase_5/video_api_Tech_Challenge_Fase_5` and `src/test/java/Tech_Challenge_Fase_5/video_api_Tech_Challenge_Fase_5`. The package root is `Tech_Challenge_Fase_5.video_api_Tech_Challenge_Fase_5`.
 
 ## Run and test
 
